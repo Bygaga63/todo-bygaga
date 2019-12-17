@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import {AlertContext} from "../context/alert/alertContext";
 
 export const Form = () => {
     const [value, setValue] = useState('');
-    const submitHandler = () => {
+    const alert = useContext(AlertContext);
 
+    const submitHandler = (e) => {
+        e.preventDefault();
+        alert.show(value, 'success');
     };
 
     return (
